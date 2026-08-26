@@ -1,0 +1,8 @@
+# Symbolic links to .local/share/gaf-client-legacy
+/data
+
+# Test folder with Gaf Client
+/client
+
+# Pycache folders
+**/__pycache__

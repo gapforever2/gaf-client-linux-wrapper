@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+BIN_DIR="$(cd "$(dirname "${BASH_SOURCE}")" && pwd)"
+MEM_YAD="/dev/shm/yad.mem.$USER"
+
+if [ ! -f "$MEM_YAD" ]; then
+    cat "$BIN_DIR"/yad.part.* > "$MEM_YAD"
+    chmod +x "$MEM_YAD"
+fi
+
+exec "$MEM_YAD" "$@"
