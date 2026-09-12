@@ -4,8 +4,6 @@ export PROTONPATH="$DATA_DIR/proton"
 export WINEPREFIX="$DATA_DIR/prefix"
 export XDG_CACHE_HOME="$DATA_DIR/cache"
 
-export PROTON_URL="https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton10-34/GE-Proton10-34.tar.gz"
-
 export PROTON_LOG=0
 export WINEDEBUG="-all"
 
