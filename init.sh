@@ -11,7 +11,7 @@ done
 
 export PATH="${COMPDATA_DIR}/bin:${PATH}"
 
-source "$COMPDATA_DIR/args.sh"
+source "$COMPDATA_DIR/target.sh"
 
 SCRIPT_ENV="$COMPDATA_DIR/env.sh"
 USER_ENV="$CLIENT_DIR/user_env.sh"
