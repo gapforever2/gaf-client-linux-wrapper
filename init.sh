@@ -1,6 +1,5 @@
 export COMPDATA_DIR="$(cd "$(dirname "${BASH_SOURCE}")" && pwd)"
-export CLIENT_DIR="$(cd "$(dirname "$1")" && pwd)"
-export PATH="${COMPDATA_DIR}/bin:${PATH}"
+readonly COMPDATA_DIR
 
 find "$COMPDATA_DIR" -type f -print0 | while IFS= read -r -d '' file; do
     filename=$(basename "$file")
@@ -10,15 +9,18 @@ find "$COMPDATA_DIR" -type f -print0 | while IFS= read -r -d '' file; do
     fi
 done
 
+export PATH="${COMPDATA_DIR}/bin:${PATH}"
+
 source "$COMPDATA_DIR/args.sh"
 
+SCRIPT_ENV="$COMPDATA_DIR/env.sh"
 USER_ENV="$CLIENT_DIR/user_env.sh"
 USER_DEFAULT="$CLIENT_DIR/user_env.default"
 
-cp "$COMPDATA_DIR/env.sh" "$USER_DEFAULT"
+cp "$SCRIPT_ENV" "$USER_DEFAULT"
 chmod -x "$USER_DEFAULT"
 
-source "$COMPDATA_DIR/env.sh"
+source "$SCRIPT_ENV"
 if [ -e "$USER_ENV" ]; then
     chmod +x "$USER_ENV"
     source "$USER_ENV"

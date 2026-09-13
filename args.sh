@@ -8,4 +8,7 @@ if [ -z "$1" ] || [ ! -f "$1" ] || [ "$(basename "$1")" != "gaf-client.exe" ]; t
         --center \
         --justify=center
     exit 1
+else
+    export CLIENT_DIR="$(cd "$(dirname "$1")" && pwd)"
+    readonly CLIENT_DIR
 fi
