@@ -50,8 +50,8 @@ assert_single_instance()
 {
     local lockfile="$DATA_DIR/gaf.lock"
     if [ -e "$lockfile" ]; then
-        PID=$(cat "$lockfile" 2>/dev/null)
-        if [ -n "$PID" ] && kill -0 "$PID" 2>/dev/null; then
+        local pid=$(cat "$lockfile" 2>/dev/null)
+        if [ -n "$pid" ] && kill -0 "$pid" 2>/dev/null; then
             show_gui "message" "Приложение уже запущено! Повторный запуск невозможен."
             exit 1
         fi
