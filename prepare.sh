@@ -2,7 +2,7 @@ mkdir -p "$PROTONPATH"
 mkdir -p "$WINEPREFIX"
 mkdir -p "$XDG_CACHE_HOME"
 
-PROTON_URL="https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton10-32/GE-Proton10-32.tar.gz"
+PROTON_URL="https://github.com/Castro-Fidel/wine_builds/releases/download/PROTON_LG_10-30/PROTON_LG_10-30.tar.xz"
 
 PROTON_FILE="${PROTON_URL##*/}" 
 PROTON_TMP="$XDG_CACHE_HOME/$PROTON_FILE"
