@@ -27,7 +27,5 @@ umu-run winetricks -q d3dcompiler_47
 umu-run winetricks -q corefonts fontsmooth=rgb
 
 # Client updating folder fix
-TARGET_LINK="$WINEPREFIX/drive_c/users/steamuser/AppData/Local/Programs/GAP Client"
-mkdir -p "$(dirname "$TARGET_LINK")"
-rm -rf "$TARGET_LINK"
-ln -s "$CLIENT_DIR" "$TARGET_LINK"
+create_dir_symlink "$CLIENT_DIR" "$WINEPREFIX/drive_c/users/steamuser/AppData/Local/Programs/GAP Client"
+create_dir_symlink "$WINEPREFIX/drive_c/ProgramData/GapForever" "$WINEPREFIX/drive_c/users/steamuser/AppData/Local/GapForever"

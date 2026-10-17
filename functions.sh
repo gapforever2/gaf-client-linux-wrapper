@@ -57,6 +57,25 @@ assert_single_instance()
         fi
     fi
     echo $$ > "$lockfile"
-    trap 'rm -f "$lockfile"' EXIT INT TERM
+    trap "rm -f $lockfile" EXIT INT TERM
 }
 export -f assert_single_instance
+
+create_dir_symlink()
+{
+    local SOURCE_DIR="$1"
+    local TARGET_LINK="$2"
+
+    mkdir -p "$(dirname "$TARGET_LINK")"
+    if [ -d "$TARGET_LINK" ] && [ ! -L "$TARGET_LINK" ]; then
+        mkdir -p "$SOURCE_DIR"
+        cp -aT "$TARGET_LINK/" "$SOURCE_DIR/"
+        rm -rf "$TARGET_LINK"
+    
+    elif [ -L "$TARGET_LINK" ]; then
+        rm -f "$TARGET_LINK"
+    fi
+
+    ln -s "$SOURCE_DIR" "$TARGET_LINK"
+}
+export -f create_dir_symlink

@@ -6,3 +6,5 @@ export WINEDEBUG="-all"
 export PROTON_NO_ESYNC=1
 export PROTON_NO_FSYNC=1
 export PROTON_NO_NTSYNC=1
+
+export PROTONFIXES_DISABLE=1
